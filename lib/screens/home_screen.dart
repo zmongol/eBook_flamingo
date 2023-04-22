@@ -70,6 +70,16 @@ class HomeScreen extends StatelessWidget {
                           title: "ᢔᡭᢙᡭᢝ ᡭᡧ ᢚᡬᡱᡱᡭᢑᡱᡱᡪᡧ",
                           auth: "Herman Joel",
                           rating: 4.9,
+                          pressDetails: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailsScreen();
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(width: 30),
                       ],
@@ -247,7 +257,7 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.only(right: 10.0), 
+                          padding: EdgeInsets.only(right: 10.0),
                           child: BookRating(score: 4.9),
                         ),
                         Expanded(

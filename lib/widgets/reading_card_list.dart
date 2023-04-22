@@ -94,15 +94,16 @@ class ReadingListCard extends StatelessWidget {
                       width: 101,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       alignment: Alignment.center,
-                      child: Text("ᠲᠤᠪᠴᠢ"),
+                      child: Text("ᢘᡭᡳᢚᡫ",style: TextStyle(fontFamily: MongolFonts.z52xanadutig),),
                     ),
                   ),
                   Expanded(
                     child: TwoSideRoundedButton(
-                      text: "ᠤᠩᠰᠢᠬᠤ",
+                      text: "ᠤᠩᠰᠢᠬᠤ", 
                       press: pressRead,
+                      
                     ),
-                  )
+                  ),
                 ],
               )
             ],

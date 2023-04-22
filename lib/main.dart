@@ -54,8 +54,8 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // MongolText("Z ᢌᡭᡪᢊᡱᡱᡭᢐ ᡯᡭᢍ ᡬᡬᡪᡧ ᡥᡭᡪᢊᢔᡬᡫᡨ", style: TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 24),),
-            // SizedBox(height: 10,),
+            MongolText("ᡯᡭᢍ ᡭᡧ ᢔᡪᡪᡬᡨ", style: TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 24),),
+            SizedBox(height: 10,),
             SizedBox(
               width: MediaQuery.of(context).size.width * .6,
               child: RoundedButton(
