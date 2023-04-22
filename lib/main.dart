@@ -1,7 +1,9 @@
+import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/consttants.dart';
 import 'package:book_app/screens/home_screen.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:mongol/mongol.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,10 +54,12 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            // MongolText("Z ᢌᡭᡪᢊᡱᡱᡭᢐ ᡯᡭᢍ ᡬᡬᡪᡧ ᡥᡭᡪᢊᢔᡬᡫᡨ", style: TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 24),),
+            // SizedBox(height: 10,),
             SizedBox(
               width: MediaQuery.of(context).size.width * .6,
               child: RoundedButton(
-                text: "start reading",
+                text: "уншиж эхлэх",
                 fontSize: 20,
                 press: () {
                   Navigator.push(

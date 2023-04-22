@@ -23,14 +23,14 @@ class BookRating extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
+      child: Row(
         children: <Widget>[
           Icon(
             Icons.star,
             color: kIconColor,
             size: 15,
           ),
-          SizedBox(height: 5),
+          SizedBox(width: 2),
           Text(
             "$score",
             style: TextStyle(

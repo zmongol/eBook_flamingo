@@ -1,7 +1,9 @@
+import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/consttants.dart';
 import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/two_side_rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:mongol/mongol.dart';
 
 class ReadingListCard extends StatelessWidget {
   final String image;
@@ -48,80 +50,63 @@ class ReadingListCard extends StatelessWidget {
               ),
             ),
           ),
-          Image.asset(
-            image,
-            width: 150,
-          ),
-          Positioned(
-            top: 35,
-            right: 10,
-            child: Column(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.favorite_border,
-                  ),
-                  onPressed: () {},
-                ),
-                BookRating(score: rating),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 160,
-            child: Container(
-              height: 85,
-              width: 202,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 24),
-                    child: RichText(
-                      maxLines: 2,
-                      text: TextSpan(
-                        style: TextStyle(color: kBlackColor),
-                        children: [
-                          TextSpan(
-                            text: "$title\n",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Image.asset(
+                        image,
+                        width: 100,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(
+                              Icons.favorite_border,
                             ),
+                            onPressed: () {},
                           ),
-                          TextSpan(
-                            text: auth,
-                            style: TextStyle(
-                              color: kLightBlackColor,
-                            ),
-                          ),
+                          BookRating(score: rating),
                         ],
                       ),
+                    ],
+                  ),
+                  Container(
+                    height: 130,
+                    child: MongolText(
+                      "$title\n",
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontFamily: MongolFonts.z52dardastig,
+                          fontSize: 22,),
                     ),
                   ),
-                  Spacer(),
-                  Row(
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: pressDetails,
-                        child: Container(
-                          width: 101,
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          alignment: Alignment.center,
-                          child: Text("Details"),
-                        ),
-                      ),
-                      Expanded(
-                        child: TwoSideRoundedButton(
-                          text: "Read",
-                          press: pressRead,
-                        ),
-                      )
-                    ],
-                  )
                 ],
               ),
-            ),
-          ),
+              Row(
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: pressDetails,
+                    child: Container(
+                      width: 101,
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      alignment: Alignment.center,
+                      child: Text("ᠲᠤᠪᠴᠢ"),
+                    ),
+                  ),
+                  Expanded(
+                    child: TwoSideRoundedButton(
+                      text: "ᠤᠩᠰᠢᠬᠤ",
+                      press: pressRead,
+                    ),
+                  )
+                ],
+              )
+            ],
+          )
         ],
       ),
     );

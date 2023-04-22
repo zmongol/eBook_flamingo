@@ -51,9 +51,9 @@ class HomeScreen extends StatelessWidget {
                       children: <Widget>[
                         ReadingListCard(
                           image: "assets/images/book-1.png",
-                          title: "Crushing & Influence",
+                          title: "ᢌᡭᡪᢊᡱᡱᡭᢐ ᡭᡧ ᡯᡬᡱᡱᡭᢚᡧ ᢘᡭᡳᢚᡬᢜᡪᡧ",
                           auth: "Gary Venchuk",
-                          rating: 4.9,
+                          rating: 4.8,
                           pressDetails: () {
                             Navigator.push(
                               context,
@@ -67,9 +67,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                         ReadingListCard(
                           image: "assets/images/book-2.png",
-                          title: "Top Ten Business Hacks",
+                          title: "ᢔᡭᢙᡭᢝ ᡭᡧ ᢚᡬᡱᡱᡭᢑᡱᡱᡪᡧ",
                           auth: "Herman Joel",
-                          rating: 4.8,
+                          rating: 4.9,
                         ),
                         SizedBox(width: 30),
                       ],
@@ -283,7 +283,7 @@ class HomeScreen extends StatelessWidget {
               height: 40,
               width: size.width * .3,
               child: TwoSideRoundedButton(
-                text: "Read",
+                text: "ᠤᠩᠰᠢᠬᠤ",
                 radious: 24,
                 press: () {},
               ),
