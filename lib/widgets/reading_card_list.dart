@@ -27,7 +27,7 @@ class ReadingListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 24, bottom: 40),
-      height: 245,
+      height: 248,
       width: 202,
       child: Stack(
         children: <Widget>[

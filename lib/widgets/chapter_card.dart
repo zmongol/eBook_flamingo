@@ -1,4 +1,6 @@
+import 'package:book_app/screens/reading_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
 import '../consttants.dart';
@@ -19,52 +21,36 @@ class ChapterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      margin: EdgeInsets.only(bottom: 16),
-      width: size.width - 48,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(38.5),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, 10),
-            blurRadius: 33,
-            color: Color(0xFFD3D3D3).withOpacity(.84),
-          ),
-        ],
-      ),
+    return GestureDetector(
+                onTap: () {
+            ReadingScreen();
+          },
       child: Row(
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "ᡴᡭᡬᢑᡭᡬᡨ $chapterNumber : $name \n",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: kBlackColor,
-                    fontWeight: FontWeight.normal,
-                    fontFamily: MongolFonts.z52ordostig,
-                  ),
+        children: [
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: Color.fromARGB(255, 164, 166, 168)),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10)),
+            child: Container(
+              height: 280,
+              margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+              child: RotatedBox(
+                quarterTurns: 0,
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: MongolText('ᡴᡭᡬᢑᡭᡬᡨ $chapterNumber : \n$name',
+                      maxLines: 2,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: MongolFonts.z52ordostig)),
                 ),
-                TextSpan(
-                  text: tag,
-                  style: TextStyle(
-                      color: kLightBlackColor,
-                      fontFamily: MongolFonts.z52agolatig),
-                ),
-              ],
+              ),
             ),
           ),
-          Spacer(),
-          IconButton(
-            icon: Icon(
-              Icons.arrow_forward_ios,
-              size: 18,
-            ),
-            onPressed: press,
-          )
         ],
       ),
     );

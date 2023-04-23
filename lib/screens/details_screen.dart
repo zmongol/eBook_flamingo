@@ -5,6 +5,7 @@ import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
 
+import '../widgets/book_info.dart';
 import '../widgets/chapter_card.dart';
 import 'Donate.dart';
 import 'reading_screen.dart';
@@ -20,17 +21,16 @@ class DetailsScreen extends StatelessWidget {
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
         actions: [
-                            IconButton(
-                    icon: Icon(Icons.favorite), //Go to Donation page
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Donation()), //Go to Donation page
-                      );
-                    },
-                  ),
+          IconButton(
+            icon: Icon(Icons.favorite), //Go to Donation page
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Donation()), //Go to Donation page
+              );
+            },
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -46,7 +46,8 @@ class DetailsScreen extends StatelessWidget {
                       top: size.height * .12,
                       left: size.width * .1,
                       right: size.width * .02),
-                  height: size.height * .48,
+                  // height: size.height * .48,
+                  height: size.height * 0.48,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/bg.png"),
@@ -63,26 +64,24 @@ class DetailsScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: size.height * .48 - 20),
-                  child: Column(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       ChapterCard(
-                        name: "ᢚᡬᡪᢊᢊᡬᢓ ᡭᡧ ᡳᡪᢉᡨ ᡯᡪᢔᡳ ᡳᡪᡨ ᡬᡪᢑᡪᡱᡱᡳ ᡥᡭᡬᡫᡨ",
+                        name: "ᢘᡪᢎᡭᢛᡬᡧ ᡳ ᡥᡭᢇ ᢈᡪᢞᡭᢐ ᡳᡪᡨ ᡳᡪᢉᡨ ᡯᡪᢔᡭᡧ ᡳ ᡥᡭᡬᡫᡨ",
                         chapterNumber: 1,
                         tag: "ᢘᡭᡳᢚᡫ ᢜᡪᢞᡬᡫᡨ",
                         press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return ReadingScreen();
-                              },
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) =>
+                          //           ReadingScreen()), //Go to Donation page
+                          // );
                         },
                       ),
                       ChapterCard(
-                        name: "ᠬᠤᠶᠠᠳᠤᠭᠠᠷ ᠪᠦᠯᠦᠭ",
+                        name: "ᢚᡬᡪᢊᢊᡬᢓ ᡭᡧ ᡥᡬᢙᡪᢝ ᡯᡪᢔᡳ",
                         chapterNumber: 2,
                         tag: "Everything loves power",
                         press: () {},
@@ -202,120 +201,6 @@ class DetailsScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class BookInfo extends StatelessWidget {
-  const BookInfo({
-    Key key,
-    this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Flex(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        direction: Axis.horizontal,
-        children: <Widget>[
-          Expanded(
-              flex: 1,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Crushing &",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(fontSize: 28),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: this.size.height * .005),
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 0),
-                    child: Text(
-                      "Influence",
-                      style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            width: this.size.width * .3,
-                            padding:
-                                EdgeInsets.only(top: this.size.height * .02),
-                            child: Container(
-                              height: 150,
-                              child: MongolText(
-                                "When the earth was flat andeveryone wanted to win the gameof the best and people and winning with an A game with all the things you have.",
-                                maxLines: 5,
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: kLightBlackColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            margin:
-                                EdgeInsets.only(top: this.size.height * .015),
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Read",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                            icon: Icon(
-                              Icons.favorite_border,
-                              size: 20,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {},
-                          ),
-                          BookRating(score: 4.9),
-                        ],
-                      )
-                    ],
-                  )
-                ],
-              )),
-          Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.transparent,
-                child: Image.asset(
-                  "assets/images/book-1.png",
-                  height: double.infinity,
-                  alignment: Alignment.topRight,
-                  fit: BoxFit.fitWidth,
-                ),
-              )),
-        ],
       ),
     );
   }

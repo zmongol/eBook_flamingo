@@ -1,5 +1,6 @@
 import 'package:book_app/consttants.dart';
 import 'package:flutter/material.dart';
+import 'package:mongol/mongol.dart';
 
 class BookRating extends StatelessWidget {
   final double score;
@@ -23,15 +24,15 @@ class BookRating extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
         children: <Widget>[
           Icon(
             Icons.star,
             color: kIconColor,
             size: 15,
           ),
-          SizedBox(width: 2),
-          Text(
+          SizedBox(height: 2),
+          MongolText(
             "$score",
             style: TextStyle(
               fontSize: 12,
