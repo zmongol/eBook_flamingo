@@ -39,13 +39,13 @@ class ReadingScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 16, 30),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
           child: Container(
-            height: context.height * 0.45,
+            height: context.height,
             // width: context.width,
             child: MongolText(
               chapter.content,
