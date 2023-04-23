@@ -20,6 +20,6 @@ Future<List<String>> loadBookFiles() async {
   booksFiles =
       manifestMap.keys.where((String key) => key.contains('json/')).toList();
 
-  print("imagePaths : $booksFiles");
+  // print("imagePaths : $booksFiles");
   return booksFiles;
 }

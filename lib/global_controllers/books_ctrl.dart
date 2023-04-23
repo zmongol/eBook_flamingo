@@ -17,12 +17,10 @@ class BookCtrl extends GetxService {
     if (booksFiles.isEmpty) return;
     for (var bookfile in booksFiles) {
       final book = await loadBookJson(bookfile);
-      print(book);
+
       if (book != null && book["items"] != null) {
         booksList.add(Book.fetch(book["items"] as List<dynamic>));
       }
     }
-
-    print("booksList : ${booksList.length}");
   }
 }
