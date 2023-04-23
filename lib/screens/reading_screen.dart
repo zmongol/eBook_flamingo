@@ -1,6 +1,8 @@
+import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/models/books/book_chapter_model.dart';
 import 'package:book_app/models/books/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
 class ReadingScreen extends StatelessWidget {
@@ -21,7 +23,22 @@ class ReadingScreen extends StatelessWidget {
         title: Text(book.title),
       ),
       body: SingleChildScrollView(
-        child: MongolText(chapter.content),
+        padding: EdgeInsets.fromLTRB(10, 10, 16, 30),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: BouncingScrollPhysics(),
+          child: Container(
+            height: context.height * 0.45,
+            // width: context.width,
+            child: MongolText(
+              chapter.content,
+              // textAlign: MongolTextAlign.l,
+              style: TextStyle(
+                fontFamily: MongolFonts.z52ordostig,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
