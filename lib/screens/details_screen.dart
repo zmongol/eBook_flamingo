@@ -9,6 +9,12 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: Text("ᢘᡭᡳᢚᡫ",
+            style: TextStyle(
+                fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
+        backgroundColor: Color.fromARGB(255, 164, 166, 168),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
