@@ -3,6 +3,11 @@ import 'package:book_app/consttants.dart';
 import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:mongol/mongol.dart';
+
+import '../widgets/chapter_card.dart';
+import 'Donate.dart';
+import 'reading_screen.dart';
 
 class DetailsScreen extends StatelessWidget {
   @override
@@ -14,6 +19,19 @@ class DetailsScreen extends StatelessWidget {
             style: TextStyle(
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
+        actions: [
+                            IconButton(
+                    icon: Icon(Icons.favorite), //Go to Donation page
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Donation()), //Go to Donation page
+                      );
+                    },
+                  ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -23,25 +41,26 @@ class DetailsScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
               children: <Widget>[
                 Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.only(
-                        top: size.height * .12,
-                        left: size.width * .1,
-                        right: size.width * .02),
-                    height: size.height * .48,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/bg.png"),
-                        fit: BoxFit.fitWidth,
-                      ),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50),
-                      ),
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.only(
+                      top: size.height * .12,
+                      left: size.width * .1,
+                      right: size.width * .02),
+                  height: size.height * .48,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/bg.png"),
+                      fit: BoxFit.fitWidth,
                     ),
-                    child: BookInfo(
-                      size: size,
-                    )),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    ),
+                  ),
+                  child: BookInfo(
+                    size: size,
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsets.only(top: size.height * .48 - 20),
                   child: Column(
@@ -51,7 +70,16 @@ class DetailsScreen extends StatelessWidget {
                         name: "ᢚᡬᡪᢊᢊᡬᢓ ᡭᡧ ᡳᡪᢉᡨ ᡯᡪᢔᡳ ᡳᡪᡨ ᡬᡪᢑᡪᡱᡱᡳ ᡥᡭᡬᡫᡨ",
                         chapterNumber: 1,
                         tag: "ᢘᡭᡳᢚᡫ ᢜᡪᢞᡬᡫᡨ",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ReadingScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       ChapterCard(
                         name: "ᠬᠤᠶᠠᠳᠤᠭᠠᠷ ᠪᠦᠯᠦᠭ",
@@ -179,74 +207,6 @@ class DetailsScreen extends StatelessWidget {
   }
 }
 
-class ChapterCard extends StatelessWidget {
-  final String name;
-  final String tag;
-  final int chapterNumber;
-  final Function press;
-  const ChapterCard({
-    Key key,
-    this.name,
-    this.tag,
-    this.chapterNumber,
-    this.press,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      margin: EdgeInsets.only(bottom: 16),
-      width: size.width - 48,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(38.5),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, 10),
-            blurRadius: 33,
-            color: Color(0xFFD3D3D3).withOpacity(.84),
-          ),
-        ],
-      ),
-      child: Row(
-        children: <Widget>[
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "ᡴᡭᡬᢑᡭᡬᡨ $chapterNumber : $name \n",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: kBlackColor,
-                    fontWeight: FontWeight.normal,
-                    fontFamily: MongolFonts.z52ordostig,
-                  ),
-                ),
-                TextSpan(
-                  text: tag,
-                  style: TextStyle(
-                      color: kLightBlackColor,
-                      fontFamily: MongolFonts.z52agolatig),
-                ),
-              ],
-            ),
-          ),
-          Spacer(),
-          IconButton(
-            icon: Icon(
-              Icons.arrow_forward_ios,
-              size: 18,
-            ),
-            onPressed: press,
-          )
-        ],
-      ),
-    );
-  }
-}
-
 class BookInfo extends StatelessWidget {
   const BookInfo({
     Key key,
@@ -297,12 +257,15 @@ class BookInfo extends StatelessWidget {
                             width: this.size.width * .3,
                             padding:
                                 EdgeInsets.only(top: this.size.height * .02),
-                            child: Text(
-                              "When the earth was flat andeveryone wanted to win the gameof the best and people and winning with an A game with all the things you have.",
-                              maxLines: 5,
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: kLightBlackColor,
+                            child: Container(
+                              height: 150,
+                              child: MongolText(
+                                "When the earth was flat andeveryone wanted to win the gameof the best and people and winning with an A game with all the things you have.",
+                                maxLines: 5,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: kLightBlackColor,
+                                ),
                               ),
                             ),
                           ),
