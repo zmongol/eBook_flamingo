@@ -2,20 +2,20 @@ import 'package:book_app/consttants.dart';
 import 'package:flutter/material.dart';
 
 class TwoSideRoundedButton extends StatelessWidget {
-  final String text;
+  final String? text;
   final double radious;
-  final Function press;
+  final Function? press;
   const TwoSideRoundedButton({
-    Key key,
+    Key? key,
     this.text,
     this.radious = 29,
-    this.press, TextStyle style,
+    this.press, TextStyle? style,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: press as void Function()?,
       child: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(vertical: 10),
@@ -27,7 +27,7 @@ class TwoSideRoundedButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          text,
+          text!,
           style: TextStyle(color: Colors.white),
         ),
       ),

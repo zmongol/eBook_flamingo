@@ -1,24 +1,20 @@
 import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/consttants.dart';
+import 'package:book_app/models/books/book_model.dart';
 import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/two_side_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
 
 class ReadingListCard extends StatelessWidget {
-  final String image;
-  final String title;
-  final String auth;
-  final double rating;
-  final Function pressDetails;
-  final Function pressRead;
+  final Book book;
+
+  final Function? pressDetails;
+  final Function? pressRead;
 
   const ReadingListCard({
-    Key key,
-    this.image,
-    this.title,
-    this.auth,
-    this.rating,
+    Key? key,
+    required this.book,
     this.pressDetails,
     this.pressRead,
   }) : super(key: key);
@@ -58,7 +54,7 @@ class ReadingListCard extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        image,
+                        book.image,
                         width: 100,
                       ),
                       Row(
@@ -69,7 +65,7 @@ class ReadingListCard extends StatelessWidget {
                             ),
                             onPressed: () {},
                           ),
-                          BookRating(score: rating),
+                          BookRating(score: book.rating),
                         ],
                       ),
                     ],
@@ -77,11 +73,12 @@ class ReadingListCard extends StatelessWidget {
                   Container(
                     height: 130,
                     child: MongolText(
-                      "$title\n",
+                      "${book.title}\n",
                       style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontFamily: MongolFonts.z52dardastig,
-                          fontSize: 22,),
+                        fontWeight: FontWeight.normal,
+                        fontFamily: MongolFonts.z52dardastig,
+                        fontSize: 22,
+                      ),
                     ),
                   ),
                 ],
@@ -89,19 +86,24 @@ class ReadingListCard extends StatelessWidget {
               Row(
                 children: <Widget>[
                   GestureDetector(
-                    onTap: pressDetails,
+                    onTap: pressDetails as void Function()?,
                     child: Container(
                       width: 101,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       alignment: Alignment.center,
-                      child: Text("ᢘᡭᡳᢚᡫ",style: TextStyle(fontFamily: MongolFonts.z52xanadutig),),
+                      child: Text(
+                        "ᢘᡭᡳᢚᡫ",
+                        style: TextStyle(fontFamily: MongolFonts.z52xanadutig),
+                      ),
                     ),
                   ),
                   Expanded(
-                    child: TwoSideRoundedButton(
-                      text: "ᠤᠩᠰᠢᠬᠤ", 
-                      press: pressRead,
-                      
+                    child: GestureDetector(
+                      onTap: pressDetails as void Function()?,
+                      child: TwoSideRoundedButton(
+                        text: "ᠤᠩᠰᠢᠬᠤ",
+                        press: pressRead,
+                      ),
                     ),
                   ),
                 ],

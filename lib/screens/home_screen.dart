@@ -1,13 +1,13 @@
+import 'package:book_app/Component/find_ctrls.dart';
 import 'package:book_app/consttants.dart';
 import 'package:book_app/screens/details_screen.dart';
-import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
-import 'package:book_app/widgets/two_side_rounded_button.dart';
-
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
+
+final _bookCtrl = FindCtrl.book;
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -50,42 +50,25 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 30),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.only(right: 30),
                     child: Row(
-                      children: <Widget>[
-                        ReadingListCard(
-                          image: "assets/images/book-1.png",
-                          title: "ᢌᡭᡪᢊᡱᡱᡭᢐ ᡭᡧ ᡯᡬᡱᡱᡭᢚᡧ ᢘᡭᡳᢚᡬᢜᡪᡧ",
-                          auth: "Gary Venchuk",
-                          rating: 4.8,
-                          pressDetails: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return DetailsScreen();
+                      children: _bookCtrl.booksList
+                          .map((e) => ReadingListCard(
+                                book: e,
+                                pressDetails: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return DetailsScreen(
+                                          book: e,
+                                        );
+                                      },
+                                    ),
+                                  );
                                 },
-                              ),
-                            );
-                          },
-                        ),
-                        ReadingListCard(
-                          image: "assets/images/book-2.png",
-                          title: "ᢔᡭᢙᡭᢝ ᡭᡧ ᢚᡬᡱᡱᡭᢑᡱᡱᡪᡧ",
-                          auth: "Herman Joel",
-                          rating: 4.9,
-                          pressDetails: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return DetailsScreen();
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                        SizedBox(width: 30),
-                      ],
+                              ))
+                          .toList(),
                     ),
                   ),
                   Padding(

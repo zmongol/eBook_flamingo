@@ -1,22 +1,27 @@
 import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/consttants.dart';
+import 'package:book_app/models/books/book_model.dart';
+import 'package:book_app/screens/reading_screen.dart';
 import 'package:book_app/widgets/book_rating.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
-import 'package:mongol/mongol.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../widgets/book_info.dart';
 import '../widgets/chapter_card.dart';
 import 'Donate.dart';
-import 'reading_screen.dart';
 
 class DetailsScreen extends StatelessWidget {
+  final Book book;
+
+  DetailsScreen({required this.book});
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("ᢘᡭᡳᢚᡫ",
+        title: Text(book.title,
             style: TextStyle(
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
@@ -60,46 +65,35 @@ class DetailsScreen extends StatelessWidget {
                   ),
                   child: BookInfo(
                     size: size,
+                    book: book,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: size.height * .48 - 20),
+                  padding:
+                      EdgeInsets.only(top: size.height * .48 - 20, right: 10),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      ChapterCard(
-                        name: "ᢘᡪᢎᡭᢛᡬᡧ ᡳ ᡥᡭᢇ ᢈᡪᢞᡭᢐ ᡳᡪᡨ ᡳᡪᢉᡨ ᡯᡪᢔᡭᡧ ᡳ ᡥᡭᡬᡫᡨ",
-                        chapterNumber: 1,
-                        tag: "ᢘᡭᡳᢚᡫ ᢜᡪᢞᡬᡫᡨ",
-                        press: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) =>
-                          //           ReadingScreen()), //Go to Donation page
-                          // );
-                        },
-                      ),
-                      ChapterCard(
-                        name: "ᢚᡬᡪᢊᢊᡬᢓ ᡭᡧ ᡥᡬᢙᡪᢝ ᡯᡪᢔᡳ",
-                        chapterNumber: 2,
-                        tag: "Everything loves power",
-                        press: () {},
-                      ),
-                      ChapterCard(
-                        name: "Influence",
-                        chapterNumber: 3,
-                        tag: "Influence easily like never before",
-                        press: () {},
-                      ),
-                      ChapterCard(
-                        name: "Win",
-                        chapterNumber: 4,
-                        tag: "Winning is what matters",
-                        press: () {},
-                      ),
-                      SizedBox(height: 10),
-                    ],
+                    children: book.chapters
+                        .mapIndexed(
+                          (e, i) => ChapterCard(
+                            chapter: e,
+                            // name: "ᢘᡪᢎᡭᢛᡬᡧ ᡳ ᡥᡭᢇ ᢈᡪᢞᡭᢐ ᡳᡪᡨ ᡳᡪᢉᡨ ᡯᡪᢔᡭᡧ ᡳ ᡥᡭᡬᡫᡨ",
+                            // chapterNumber: 1,
+                            // tag: "ᢘᡭᡳᢚᡫ ᢜᡪᢞᡬᡫᡨ",
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ReadingScreen(
+                                    book: book,
+                                    chapterIndex: i,
+                                  ),
+                                ), //Go to Donation page
+                              );
+                            },
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
               ],
@@ -111,7 +105,7 @@ class DetailsScreen extends StatelessWidget {
                 children: <Widget>[
                   RichText(
                     text: TextSpan(
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                       children: [
                         TextSpan(
                           text: "You might also ",
@@ -186,7 +180,7 @@ class DetailsScreen extends StatelessWidget {
                         top: 0,
                         right: 0,
                         child: Image.asset(
-                          "assets/images/book-3.png",
+                          book.image,
                           width: 150,
                           fit: BoxFit.fitWidth,
                         ),

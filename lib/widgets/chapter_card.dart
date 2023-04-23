@@ -1,30 +1,23 @@
-import 'package:book_app/screens/reading_screen.dart';
+import 'package:book_app/models/books/book_chapter_model.dart';
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
-import '../consttants.dart';
 
 class ChapterCard extends StatelessWidget {
-  final String name;
-  final String tag;
-  final int chapterNumber;
-  final Function press;
+  final BookChapter chapter;
+  final Function() press;
   const ChapterCard({
-    Key key,
-    this.name,
-    this.tag,
-    this.chapterNumber,
-    this.press,
+    Key? key,
+    required this.chapter,
+    required this.press,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    // var size = MediaQuery.of(context).size;
     return GestureDetector(
-                onTap: () {
-            ReadingScreen();
-          },
+      onTap: press,
       child: Row(
         children: [
           SizedBox(
@@ -42,7 +35,8 @@ class ChapterCard extends StatelessWidget {
                 quarterTurns: 0,
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: MongolText('ᡴᡭᡬᢑᡭᡬᡨ $chapterNumber : \n$name',
+                  child: MongolText(
+                      'ᡴᡭᡬᢑᡭᡬᡨ ${chapter.chapterNumber} : \n${chapter.chapterTitle}',
                       maxLines: 2,
                       style: TextStyle(
                           color: Colors.black,

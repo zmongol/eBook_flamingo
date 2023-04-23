@@ -1,11 +1,16 @@
 import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/consttants.dart';
+import 'package:book_app/global_controllers/books_ctrl.dart';
 import 'package:book_app/screens/home_screen.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  _putCtrls();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -54,8 +59,14 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            MongolText("ᡯᡭᢍ ᡭᡧ ᢔᡪᡪᡬᡨ", style: TextStyle(fontFamily: MongolFonts.z52xanadutig, fontSize: 24),),
-            SizedBox(height: 10,),
+            MongolText(
+              "ᡯᡭᢍ ᡭᡧ ᢔᡪᡪᡬᡨ",
+              style:
+                  TextStyle(fontFamily: MongolFonts.z52xanadutig, fontSize: 24),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             SizedBox(
               width: MediaQuery.of(context).size.width * .6,
               child: RoundedButton(
@@ -78,4 +89,8 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void _putCtrls() {
+  Get.put(BookCtrl());
 }

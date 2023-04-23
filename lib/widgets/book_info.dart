@@ -1,5 +1,6 @@
+import 'package:book_app/models/books/book_model.dart';
+import 'package:book_app/screens/reading_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
@@ -7,12 +8,15 @@ import '../consttants.dart';
 import 'book_rating.dart';
 
 class BookInfo extends StatelessWidget {
+  final Book book;
+
   const BookInfo({
-    Key key,
+    Key? key,
     this.size,
+    required this.book,
   }) : super(key: key);
 
-  final Size size;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class BookInfo extends StatelessWidget {
       child: Row(
         children: [
           MongolText(
-            "ᢌᡭᡪᢊᡱᡱᡭᢐ ᡭᡧ ᡯᡬᡱᡱᡭᢚᡧ ᢘᡭᡳᢚᡬᢜᡪᡧ",
+            book.title,
             maxLines: 2,
             style: TextStyle(
                 fontSize: 28,
@@ -29,7 +33,7 @@ class BookInfo extends StatelessWidget {
                 fontFamily: MongolFonts.z52dardastig),
           ),
           MongolText(
-            "When the earth was flat andeveryone wanted to win the gameof the best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people  best and people and winning with an A game with all the things you have.",
+            book.content,
             maxLines: 7,
             style: TextStyle(
               fontSize: 10,
@@ -49,22 +53,36 @@ class BookInfo extends StatelessWidget {
               BookRating(score: 4.9),
               SizedBox(height: 10),
               // TextBox decoration
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white),
-                    color: Color.fromARGB(255, 143, 146, 148),
-                    borderRadius: BorderRadius.circular(10)),
+              GestureDetector(
+                onTap: () {
+                  if (book.chapters.isEmpty) return;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReadingScreen(
+                        book: book,
+                        chapterIndex: 0,
+                      ),
+                    ), //Go to Donation page
+                  );
+                },
                 child: Container(
-                  height: 80,
-                  margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
-                  child: RotatedBox(
-                    quarterTurns: 0,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: MongolText('ᡥᡭᡪᢊᢔᡬᡫᡨ',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: MongolFonts.z52ordostig)),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                      color: Color.fromARGB(255, 143, 146, 148),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Container(
+                    height: 80,
+                    margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                    child: RotatedBox(
+                      quarterTurns: 0,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: MongolText('ᡥᡭᡪᢊᢔᡬᡫᡨ',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: MongolFonts.z52ordostig)),
+                      ),
                     ),
                   ),
                 ),
@@ -77,7 +95,7 @@ class BookInfo extends StatelessWidget {
                 // width: 200,
                 color: Colors.transparent,
                 child: Image.asset(
-                  "assets/images/book-1.png",
+                  book.image,
                   height: double.infinity,
                   alignment: Alignment.topRight,
                   fit: BoxFit.fitWidth,

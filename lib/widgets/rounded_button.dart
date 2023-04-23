@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
 
-  final String text;
-  final Function press;
+  final String? text;
+  final Function? press;
   final double verticalPadding;
   final double horizontalPadding;
   final double fontSize;
 
   RoundedButton({
-    Key key,
+    Key? key,
     this.text,
     this.press,
     this.verticalPadding = 16,
@@ -20,7 +20,7 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: press as void Function()?,
       child: Container(
         width: double.infinity,
         alignment: Alignment.center,
@@ -39,7 +39,7 @@ class RoundedButton extends StatelessWidget {
           ],
         ),
         child: Text(
-          text,
+          text!,
           style: TextStyle(
             fontSize: fontSize,
             fontWeight: FontWeight.bold,
