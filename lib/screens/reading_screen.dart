@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
+import 'Donate.dart';
+
 class ReadingScreen extends StatelessWidget {
   final int chapterIndex;
   final Book book;
@@ -20,7 +22,22 @@ class ReadingScreen extends StatelessWidget {
     BookChapter chapter = book.chapters[chapterIndex];
     return Scaffold(
       appBar: AppBar(
-        title: Text(book.title),
+        title: Text(book.title,
+            style: TextStyle(
+                fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
+        backgroundColor: Color.fromARGB(255, 164, 166, 168),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.favorite), //Go to Donation page
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Donation()), //Go to Donation page
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(10, 10, 16, 30),

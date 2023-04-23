@@ -37,6 +37,7 @@ class BookInfo extends StatelessWidget {
             maxLines: 7,
             style: TextStyle(
               fontSize: 10,
+              fontFamily: MongolFonts.z52ordostig,
               color: kLightBlackColor,
             ),
           ),

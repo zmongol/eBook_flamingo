@@ -77,9 +77,6 @@ class DetailsScreen extends StatelessWidget {
                         .mapIndexed(
                           (e, i) => ChapterCard(
                             chapter: e,
-                            // name: "ᢘᡪᢎᡭᢛᡬᡧ ᡳ ᡥᡭᢇ ᢈᡪᢞᡭᢐ ᡳᡪᡨ ᡳᡪᢉᡨ ᡯᡪᢔᡭᡧ ᡳ ᡥᡭᡬᡫᡨ",
-                            // chapterNumber: 1,
-                            // tag: "ᢘᡭᡳᢚᡫ ᢜᡪᢞᡬᡫᡨ",
                             press: () {
                               Navigator.push(
                                 context,
