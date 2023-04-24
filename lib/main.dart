@@ -84,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             MongolText(
-              "ᡯᡭᢍ ᡭᡧ ᢔᡪᡪᡬᡨ",
+              "ᢚᡪᢊᡬᢍ ᡯᡭᢍ ᡭᡧ ᢔᡪᡪᡬᡨ",
               style:
                   TextStyle(fontFamily: MongolFonts.z52xanadutig, fontSize: 24),
             ),
