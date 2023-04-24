@@ -11,6 +11,17 @@ Future<Map<String, dynamic>?> loadBookJson(String path) async {
   }
 }
 
+Future<String?> readAssetFile(String path) async {
+  try {
+    final dd = await rootBundle.loadString(path);
+    print("dd : $dd");
+    return dd;
+  } catch (e) {
+    print("dd : $e");
+    return null;
+  }
+}
+
 Future<List<String>> loadBookFiles() async {
   List<String> booksFiles = [];
   final manifestContent = await rootBundle.loadString('AssetManifest.json');

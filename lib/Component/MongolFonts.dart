@@ -1,5 +1,4 @@
 class MongolFonts {
-
   static final String z52haratig = 'z52haratig';
   static final String z52amglangtig = 'z52amglangtig';
   static final String z52buduntig = 'z52buduntig';
@@ -107,10 +106,7 @@ class MongolFonts {
     [z52qingmingtig, ' ᢚᡬᡪᡬᡨ ᢌᡬᡪᡬᡨ ᢘᡬᡬᡨ'],
     [z52solibotig, ' ᢔᡭᢑᡳᡬᡫᡨ  ᢘᡬᡬᡨ'],
     [z52sonintig, ' ᢔᡭᡱᡬᡧ ᢘᡬᡬᡨ'],
-
   ];
-
-
 
   //   static final List fontList = [
   //   [z52agolatig, '  ᡥᡪᡱᡱᡭᢑᡧ ᢘᡬᡬᡨ'],

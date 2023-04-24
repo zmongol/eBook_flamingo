@@ -14,6 +14,34 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          PopupMenuButton<String>(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text("Font Size"),
+                value: "FontSize",
+              ),
+              PopupMenuItem(
+                child: Text("Font Family"),
+                value: "FontFamily",
+              ),
+            ],
+            onSelected: (val) {
+              if (val == "FontSize") {
+                _bookCtrl.changeFontScale();
+                print(_bookCtrl.fontScale.value);
+              }
+              if (val == "FontFamily") {
+                _bookCtrl.changeFontFamily();
+              }
+            },
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

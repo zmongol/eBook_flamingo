@@ -1,31 +1,55 @@
 import 'package:book_app/Component/MongolFonts.dart';
+import 'package:book_app/Component/find_ctrls.dart';
 import 'package:book_app/consttants.dart';
 import 'package:book_app/global_controllers/books_ctrl.dart';
 import 'package:book_app/screens/home_screen.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:mongol/mongol.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
+
   _putCtrls();
   runApp(MyApp());
 }
+
+final _book = FindCtrl.book;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Book App',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: Theme.of(context).textTheme.apply(
-              displayColor: kBlackColor,
-            ),
+    return Obx(
+      () => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Book App',
+        // builder: (context, child) {
+        //   return MediaQuery(
+        //     data: MediaQuery.of(context).copyWith(
+        //       textScaleFactor: _book.fontSize.value,
+        //     ),
+        //     child: child!,
+        //   );
+        // },
+        theme: _book.appTheme.value.copyWith(
+          textTheme: Theme.of(context).textTheme.apply(
+                displayColor: kBlackColor,
+                fontSizeFactor: _book.fontScale.value,
+              ),
+        ),
+        /* theme: ThemeData(
+          fontFamily:
+              _book.fontFamily.value.isEmpty ? null : _book.fontFamily.value,
+          scaffoldBackgroundColor: Colors.white,
+          textTheme: Theme.of(context).textTheme.apply(
+                displayColor: kBlackColor,
+              ),
+        ), */
+        home: WelcomeScreen(),
       ),
-      home: WelcomeScreen(),
     );
   }
 }

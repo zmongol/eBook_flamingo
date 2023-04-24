@@ -49,7 +49,7 @@ class ReadingScreen extends StatelessWidget {
             // width: context.width,
             child: MongolText(
               chapter.content,
-              // textAlign: MongolTextAlign.l,
+              textAlign: MongolTextAlign.top,
               style: TextStyle(
                 fontFamily: MongolFonts.z52ordostig,
               ),
@@ -60,3 +60,4 @@ class ReadingScreen extends StatelessWidget {
     );
   }
 }
+//chapter.content,
