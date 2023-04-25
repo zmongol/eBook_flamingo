@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
-import 'Donate.dart';
+import '../Component/find_ctrls.dart';
+final _bookCtrl = FindCtrl.book;
 
 class ReadingScreen extends StatelessWidget {
   final int chapterIndex;
@@ -27,16 +28,28 @@ class ReadingScreen extends StatelessWidget {
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
         actions: [
-          IconButton(
-            icon: Icon(Icons.favorite), //Go to Donation page
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Donation()), //Go to Donation page
-              );
+          PopupMenuButton<String>(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text("ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢜᡪᢊᡪᡨ ᡳᡪᢉᡨ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+                value: "FontSize",
+              ),
+              PopupMenuItem(
+                child: Text("ᢘᡬᡬᡨ ᢔᡭᢑᡬᡪᡪᡳ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+                value: "FontFamily",
+              ),
+            ],
+            onSelected: (val) {
+              if (val == "FontSize") {
+                _bookCtrl.changeFontScale();
+                print(_bookCtrl.fontScale.value);
+              }
+              if (val == "FontFamily") {
+                _bookCtrl.changeFontFamily();
+              }
             },
           ),
+
         ],
       ),
       body: Padding(

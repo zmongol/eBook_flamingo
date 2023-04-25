@@ -1,3 +1,4 @@
+import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/models/basic/mongol_font_family_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,7 +32,7 @@ class _FontFamily extends StatelessWidget {
             20.heightBox,
             Text(
               "Select Font Family",
-              style: context.titleLarge,
+              style: TextStyle(fontFamily: MongolFonts.z52ordostig,fontSize: 20),
             ).centered(),
             20.heightBox,
             ...MongolFamily.fetchList().map((e) => ListTile(

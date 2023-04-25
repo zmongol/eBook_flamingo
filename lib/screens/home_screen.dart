@@ -1,4 +1,3 @@
-import 'package:book_app/Component/find_ctrls.dart';
 import 'package:book_app/consttants.dart';
 import 'package:book_app/screens/details_screen.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
@@ -6,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
+import '../Component/find_ctrls.dart';
+import 'Donate.dart';
 
 final _bookCtrl = FindCtrl.book;
 
@@ -19,25 +20,14 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          PopupMenuButton<String>(
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                child: Text("Font Size"),
-                value: "FontSize",
-              ),
-              PopupMenuItem(
-                child: Text("Font Family"),
-                value: "FontFamily",
-              ),
-            ],
-            onSelected: (val) {
-              if (val == "FontSize") {
-                _bookCtrl.changeFontScale();
-                print(_bookCtrl.fontScale.value);
-              }
-              if (val == "FontFamily") {
-                _bookCtrl.changeFontFamily();
-              }
+                 IconButton(
+            icon: Icon(Icons.favorite), //Go to Donation page
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Donation()), //Go to Donation page
+              );
             },
           ),
         ],

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../Component/MongolFonts.dart';
+
 void showFontSizeDialogue({
   required Function(double) onTap,
   required double selectedScale,
@@ -26,33 +28,33 @@ class _FontSize extends StatelessWidget {
         children: [
           20.heightBox,
           Text(
-            "Select Font Size",
-            style: context.titleLarge,
+            "ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢊᡪᢎᢛᡬᡫᡨ ᢔᡭᡪᢊᡱᡱᡭᡪᡪᡳ",
+            style: TextStyle(fontFamily: MongolFonts.z52ordostig,fontSize: 20),
           ).centered(),
           20.heightBox,
           ListTile(
             onTap: () {
-              onTap(1.08);
+              onTap(1.40);
             },
-            trailing: selectedScale == 1.08
+            trailing: selectedScale == 1.40
                 ? Icon(
                     Icons.check,
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("Large"),
+            title: Text("ᢘᡭᢎᡳ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
           ),
           ListTile(
             onTap: () {
-              onTap(1.05);
+              onTap(1.20);
             },
-            trailing: selectedScale == 1.05
+            trailing: selectedScale == 1.20
                 ? Icon(
                     Icons.check,
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("Medium"),
+            title: Text("ᢘᡭᢎᢙᡧ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
           ),
           ListTile(
             onTap: () {
@@ -64,7 +66,7 @@ class _FontSize extends StatelessWidget {
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("Regular"),
+            title: Text("ᡳᡪᢉᡨ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
           ),
           20.heightBox,
         ],
