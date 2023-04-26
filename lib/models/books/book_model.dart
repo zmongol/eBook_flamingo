@@ -34,6 +34,7 @@ class Book {
       Book book = Book.fromJson(data[0] as Map<String, dynamic>);
       return book..chapters = BookChapter.fetchList(data);
     } catch (e) {
+      print("Book:fetch err=>$e");
       return Book();
     }
   }

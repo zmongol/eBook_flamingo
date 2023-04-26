@@ -5,6 +5,7 @@ import 'package:book_app/dialogues/show_font_size_sheet.dart';
 import 'package:book_app/extensions/storage_ext.dart';
 import 'package:book_app/functions/load_book_json.dart';
 import 'package:book_app/models/books/book_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class BookCtrl extends GetxService {
@@ -62,9 +63,13 @@ class BookCtrl extends GetxService {
     if (booksFiles.isEmpty) return;
     for (var bookfile in booksFiles) {
       final book = await loadBookJson(bookfile);
+
       if (book != null && book["items"] != null) {
-        booksList.add(Book.fetch(book["items"] as List<dynamic>));
+        booksList.add(await compute<List<dynamic>, Book>(
+            Book.fetch, (book["items"] as List<dynamic>)));
       }
     }
+
+    //
   }
 }

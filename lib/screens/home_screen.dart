@@ -3,6 +3,7 @@ import 'package:book_app/screens/details_screen.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../Component/MongolFonts.dart';
 import '../Component/find_ctrls.dart';
@@ -135,8 +136,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 20),
                         Container(
-                          height: 80,
-                          width: double.infinity,
+                          // height: 80,
+                          width: double.maxFinite,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(38.5),
@@ -153,52 +154,50 @@ class HomeScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Expanded(
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 30, right: 20),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              Text(
-                                                "Crushing & Influence",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                3.heightBox,
+                                Padding(
+                                  padding: EdgeInsets.only(left: 30, right: 20),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              "Crushing & Influence",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                              Text(
-                                                "Gary Venchuk",
+                                            ),
+                                            Text(
+                                              "Gary Venchuk",
+                                              style: TextStyle(
+                                                color: kLightBlackColor,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: Text(
+                                                "Chapter 7 of 10",
                                                 style: TextStyle(
+                                                  fontSize: 10,
                                                   color: kLightBlackColor,
                                                 ),
                                               ),
-                                              Align(
-                                                alignment:
-                                                    Alignment.bottomRight,
-                                                child: Text(
-                                                  "Chapter 7 of 10",
-                                                  style: TextStyle(
-                                                    fontSize: 10,
-                                                    color: kLightBlackColor,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(height: 5),
-                                            ],
-                                          ),
+                                            ),
+                                            SizedBox(height: 5),
+                                          ],
                                         ),
-                                        Image.asset(
-                                          "assets/images/book-1.png",
-                                          width: 55,
-                                        )
-                                      ],
-                                    ),
+                                      ),
+                                      3.widthBox,
+                                      Image.asset(
+                                        "assets/images/book-1.png",
+                                        width: 55,
+                                      )
+                                    ],
                                   ),
                                 ),
                                 Container(

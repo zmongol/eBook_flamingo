@@ -71,26 +71,31 @@ class DetailsScreen extends StatelessWidget {
                 Padding(
                   padding:
                       EdgeInsets.only(top: size.height * .48 - 20, right: 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: book.chapters
-                        .mapIndexed(
-                          (e, i) => ChapterCard(
-                            chapter: e,
-                            press: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ReadingScreen(
-                                    book: book,
-                                    chapterIndex: i,
-                                  ),
-                                ), //Go to Donation page
-                              );
-                            },
-                          ),
-                        )
-                        .toList(),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: BouncingScrollPhysics(),
+                    padding: EdgeInsets.only(right: 60),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: book.chapters
+                          .mapIndexed(
+                            (e, i) => ChapterCard(
+                              chapter: e,
+                              press: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ReadingScreen(
+                                      book: book,
+                                      chapterIndex: i,
+                                    ),
+                                  ), //Go to Donation page
+                                );
+                              },
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ),
                 ),
               ],

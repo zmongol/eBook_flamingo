@@ -1,3 +1,4 @@
+import 'package:book_app/Component/font_scale.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -29,44 +30,53 @@ class _FontSize extends StatelessWidget {
           20.heightBox,
           Text(
             "ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢊᡪᢎᢛᡬᡫᡨ ᢔᡭᡪᢊᡱᡱᡭᡪᡪᡳ",
-            style: TextStyle(fontFamily: MongolFonts.z52ordostig,fontSize: 20),
+            style: TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 20),
           ).centered(),
           20.heightBox,
           ListTile(
             onTap: () {
-              onTap(1.40);
+              onTap(FontScale.large);
             },
-            trailing: selectedScale == 1.40
+            trailing: selectedScale == FontScale.large
                 ? Icon(
                     Icons.check,
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("ᢘᡭᢎᡳ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+            title: Text(
+              "ᢘᡭᢎᡳ",
+              style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+            ),
           ),
           ListTile(
             onTap: () {
-              onTap(1.20);
+              onTap(FontScale.medium);
             },
-            trailing: selectedScale == 1.20
+            trailing: selectedScale == FontScale.medium
                 ? Icon(
                     Icons.check,
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("ᢘᡭᢎᢙᡧ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+            title: Text(
+              "ᢘᡭᢎᢙᡧ",
+              style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+            ),
           ),
           ListTile(
             onTap: () {
-              onTap(1);
+              onTap(FontScale.regular);
             },
-            trailing: selectedScale == 1
+            trailing: selectedScale == FontScale.regular
                 ? Icon(
                     Icons.check,
                     color: context.primaryColor,
                   )
                 : null,
-            title: Text("ᡳᡪᢉᡨ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+            title: Text(
+              "ᡳᡪᢉᡨ",
+              style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+            ),
           ),
           20.heightBox,
         ],
