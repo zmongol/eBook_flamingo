@@ -26,28 +26,12 @@ class MyApp extends StatelessWidget {
       () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Book App',
-        // builder: (context, child) {
-        //   return MediaQuery(
-        //     data: MediaQuery.of(context).copyWith(
-        //       textScaleFactor: _book.fontSize.value,
-        //     ),
-        //     child: child!,
-        //   );
-        // },
         theme: _book.appTheme.value.copyWith(
           textTheme: Theme.of(context).textTheme.apply(
                 displayColor: kBlackColor,
                 fontSizeFactor: _book.fontScale.value,
               ),
         ),
-        /* theme: ThemeData(
-          fontFamily:
-              _book.fontFamily.value.isEmpty ? null : _book.fontFamily.value,
-          scaffoldBackgroundColor: Colors.white,
-          textTheme: Theme.of(context).textTheme.apply(
-                displayColor: kBlackColor,
-              ),
-        ), */
         home: WelcomeScreen(),
       ),
     );

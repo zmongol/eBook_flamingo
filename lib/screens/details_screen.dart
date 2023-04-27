@@ -1,15 +1,16 @@
 import 'package:book_app/Component/MongolFonts.dart';
-import 'package:book_app/consttants.dart';
 import 'package:book_app/models/books/book_model.dart';
 import 'package:book_app/screens/reading_screen.dart';
-import 'package:book_app/widgets/book_rating.dart';
-import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../Component/find_ctrls.dart';
 import '../widgets/book_info.dart';
 import '../widgets/chapter_card.dart';
+import '../widgets/reading_card_list.dart';
 import 'Donate.dart';
+
+final _bookCtrl = FindCtrl.book;
 
 class DetailsScreen extends StatelessWidget {
   final Book book;
@@ -105,90 +106,45 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  SizedBox(height: 40),
                   RichText(
                     text: TextSpan(
                       style: Theme.of(context).textTheme.headlineSmall,
                       children: [
                         TextSpan(
-                          text: "You might also ",
-                        ),
-                        TextSpan(
-                          text: "like….",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          text: "ᢘᡪᡧ ᢙᡳ ᢘᡪᡱᡱᡪᢑᡪᡪᡪᢙᡪᡪᡪᡳ ᡴᡭᢔᡭᡭᡧ ᡯᡭᢍ ᡭᡭᡧ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: MongolFonts.z52agolatig),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        height: 180,
-                        width: double.infinity,
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding:
-                              EdgeInsets.only(left: 24, top: 24, right: 150),
-                          height: 160,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(29),
-                            color: Color(0xFFFFF8F9),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              RichText(
-                                text: TextSpan(
-                                  style: TextStyle(color: kBlackColor),
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          "How To Win \nFriends & Influence \n",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                      ),
+                  SizedBox(height: 10),
+                  //detailed book list
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: _bookCtrl.booksList
+                          .map((e) => ReadingListCard(
+                                book: e,
+                                pressDetails: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return DetailsScreen(
+                                          book: e,
+                                        );
+                                      },
                                     ),
-                                    TextSpan(
-                                      text: "Gary Venchuk",
-                                      style: TextStyle(color: kLightBlackColor),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  BookRating(
-                                    score: 4.9,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Expanded(
-                                    child: RoundedButton(
-                                      text: "Read",
-                                      verticalPadding: 10,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: Image.asset(
-                          book.image,
-                          width: 150,
-                          fit: BoxFit.fitWidth,
-                        ),
-                      ),
-                    ],
-                  )
+                                  );
+                                },
+                              ))
+                          .toList(),
+                    ),
+                  ),
                 ],
               ),
             ),

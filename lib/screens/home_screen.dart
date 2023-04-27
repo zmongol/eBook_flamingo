@@ -1,9 +1,7 @@
-import 'package:book_app/consttants.dart';
 import 'package:book_app/screens/details_screen.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:mongol/mongol.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../Component/MongolFonts.dart';
 import '../Component/find_ctrls.dart';
@@ -21,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          IconButton(
+                    IconButton(
             icon: Icon(Icons.favorite), //Go to Donation page
             onPressed: () {
               Navigator.push(
@@ -31,6 +29,34 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
+          PopupMenuButton<String>(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Text(
+                  "ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢜᡪᢊᡪᡨ ᡳᡪᢉᡨ",
+                  style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+                ),
+                value: "FontSize",
+              ),
+              PopupMenuItem(
+                child: Text(
+                  "ᢘᡬᡬᡨ ᢔᡭᢑᡬᡪᡪᡳ",
+                  style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+                ),
+                value: "FontFamily",
+              ),
+            ],
+            onSelected: (val) {
+              if (val == "FontSize") {
+                _bookCtrl.changeFontScale();
+                print(_bookCtrl.fontScale.value);
+              }
+              if (val == "FontFamily") {
+                _bookCtrl.changeFontFamily();
+              }
+            },
+          ),
+
         ],
       ),
       body: SingleChildScrollView(
@@ -135,83 +161,84 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 20),
-                        Container(
-                          // height: 80,
-                          width: double.maxFinite,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(38.5),
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 10),
-                                blurRadius: 33,
-                                color: Color(0xFFD3D3D3).withOpacity(.84),
-                              ),
-                            ],
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(38.5),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                3.heightBox,
-                                Padding(
-                                  padding: EdgeInsets.only(left: 30, right: 20),
-                                  child: Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              "Crushing & Influence",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            Text(
-                                              "Gary Venchuk",
-                                              style: TextStyle(
-                                                color: kLightBlackColor,
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: Alignment.bottomRight,
-                                              child: Text(
-                                                "Chapter 7 of 10",
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  color: kLightBlackColor,
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(height: 5),
-                                          ],
-                                        ),
-                                      ),
-                                      3.widthBox,
-                                      Image.asset(
-                                        "assets/images/book-1.png",
-                                        width: 55,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  height: 7,
-                                  width: size.width * .65,
-                                  decoration: BoxDecoration(
-                                    color: kProgressIndicator,
-                                    borderRadius: BorderRadius.circular(7),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        Center(child: Text("Email: Zmongolcode@gmail.com")),
+                        // Container(
+                        //   // height: 80,
+                        //   width: double.maxFinite,
+                        //   decoration: BoxDecoration(
+                        //     color: Colors.white,
+                        //     borderRadius: BorderRadius.circular(38.5),
+                        //     boxShadow: [
+                        //       BoxShadow(
+                        //         offset: Offset(0, 10),
+                        //         blurRadius: 33,
+                        //         color: Color(0xFFD3D3D3).withOpacity(.84),
+                        //       ),
+                        //     ],
+                        //   ),
+                        //   child: ClipRRect(
+                        //     borderRadius: BorderRadius.circular(38.5),
+                        //     child: Column(
+                        //       crossAxisAlignment: CrossAxisAlignment.start,
+                        //       children: <Widget>[
+                        //         3.heightBox,
+                        //         Padding(
+                        //           padding: EdgeInsets.only(left: 30, right: 20),
+                        //           child: Row(
+                        //             children: <Widget>[
+                        //               Expanded(
+                        //                 child: Column(
+                        //                   mainAxisAlignment:
+                        //                       MainAxisAlignment.end,
+                        //                   crossAxisAlignment:
+                        //                       CrossAxisAlignment.start,
+                        //                   children: <Widget>[
+                        //                     Text(
+                        //                       "Crushing & Influence",
+                        //                       style: TextStyle(
+                        //                         fontWeight: FontWeight.bold,
+                        //                       ),
+                        //                     ),
+                        //                     Text(
+                        //                       "Gary Venchuk",
+                        //                       style: TextStyle(
+                        //                         color: kLightBlackColor,
+                        //                       ),
+                        //                     ),
+                        //                     Align(
+                        //                       alignment: Alignment.bottomRight,
+                        //                       child: Text(
+                        //                         "Chapter 7 of 10",
+                        //                         style: TextStyle(
+                        //                           fontSize: 10,
+                        //                           color: kLightBlackColor,
+                        //                         ),
+                        //                       ),
+                        //                     ),
+                        //                     SizedBox(height: 5),
+                        //                   ],
+                        //                 ),
+                        //               ),
+                        //               3.widthBox,
+                        //               Image.asset(
+                        //                 "assets/images/book-1.png",
+                        //                 width: 55,
+                        //               )
+                        //             ],
+                        //           ),
+                        //         ),
+                        //         Container(
+                        //           height: 7,
+                        //           width: size.width * .65,
+                        //           decoration: BoxDecoration(
+                        //             color: kProgressIndicator,
+                        //             borderRadius: BorderRadius.circular(7),
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                         SizedBox(height: 40),
                       ],
                     ),
