@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-                    IconButton(
+          IconButton(
             icon: Icon(Icons.favorite), //Go to Donation page
             onPressed: () {
               Navigator.push(
@@ -56,7 +56,6 @@ class HomeScreen extends StatelessWidget {
               }
             },
           ),
-
         ],
       ),
       body: SingleChildScrollView(
@@ -101,6 +100,7 @@ class HomeScreen extends StatelessWidget {
                           .map((e) => ReadingListCard(
                                 book: e,
                                 pressDetails: () {
+                                  _bookCtrl.randombooksList.shuffle();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(

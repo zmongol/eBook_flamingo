@@ -32,21 +32,29 @@ class _FontFamily extends StatelessWidget {
             20.heightBox,
             Text(
               "Select Font Family",
-              style: TextStyle(fontFamily: MongolFonts.z52ordostig,fontSize: 20),
+              style:
+                  TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 20),
             ).centered(),
             20.heightBox,
-            ...MongolFamily.fetchList().map((e) => ListTile(
-                  onTap: () {
-                    onTap(e);
-                  },
-                  trailing: selectedFamily == e.familyName
-                      ? Icon(
-                          Icons.check,
-                          color: context.primaryColor,
-                        )
-                      : null,
-                  title: Text(e.mongolName),
-                )),
+            ...MongolFamily.fetchList().map(
+              (e) => ListTile(
+                onTap: () {
+                  onTap(e);
+                },
+                trailing: selectedFamily == e.familyName
+                    ? Icon(
+                        Icons.check,
+                        color: context.primaryColor,
+                      )
+                    : null,
+                title: Text(
+                  e.mongolName,
+                  style: TextStyle(
+                    fontFamily: e.familyName,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

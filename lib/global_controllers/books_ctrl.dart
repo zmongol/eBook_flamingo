@@ -11,13 +11,10 @@ import 'package:get/get.dart';
 
 class BookCtrl extends GetxService {
   List<Book> booksList = <Book>[];
+  List<Book> randombooksList = <Book>[];
   var appTheme = appLightTheme().obs;
 
-  var contentStyle = TextStyle(      fontSize: 14,
-      
-      
-      ).obs;
-  
+  var contentStyle = TextStyle().obs;
 
   var fontScale = 1.0.obs;
   var fontFamily = "".obs;
@@ -37,7 +34,20 @@ class BookCtrl extends GetxService {
       fontFamily.value = family;
     } else {
       fontFamily.value = "".boxfontFamily;
-      contentStyle
+    }
+    updateContentFontFamily();
+  }
+
+  void updateContentFontFamily() {
+    print(fontFamily.value);
+    if (fontFamily.value.isEmpty) {
+      contentStyle.value = TextStyle(
+        fontFamily: MongolFonts.z52ordostig,
+      );
+    } else {
+      contentStyle.value = TextStyle(
+        fontFamily: fontFamily.value,
+      );
     }
   }
 
@@ -57,10 +67,12 @@ class BookCtrl extends GetxService {
     showFontFamilyDialogue(
       selectedFamily: fontFamily.value,
       onTap: (val) {
+        print("val.familyName : ${val.familyName} : ${val.mongolName}");
         Get.back();
-        fontFamily.value = val.mongolName;
+        fontFamily.value = val.familyName;
         val.familyName.boxfontFamily;
-        appTheme.value = appLightTheme(fontFamily: val.familyName);
+        updateContentFontFamily();
+        // appTheme.value = appLightTheme(fontFamily: val.familyName);
         appTheme.refresh();
       },
     );
@@ -73,11 +85,15 @@ class BookCtrl extends GetxService {
       final book = await loadBookJson(bookfile);
 
       if (book != null && book["items"] != null) {
-        booksList.add(await compute<List<dynamic>, Book>(
-            Book.fetch, (book["items"] as List<dynamic>)));
+        final dd = await compute<List<dynamic>, Book>(
+            Book.fetch, (book["items"] as List<dynamic>));
+        booksList.add(dd);
+        randombooksList.add(dd);
       }
     }
 
     //
+
+    randombooksList.shuffle();
   }
 }

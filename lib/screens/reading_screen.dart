@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/find_ctrls.dart';
+
 final _bookCtrl = FindCtrl.book;
 
 class ReadingScreen extends StatelessWidget {
@@ -31,11 +32,17 @@ class ReadingScreen extends StatelessWidget {
           PopupMenuButton<String>(
             itemBuilder: (context) => [
               PopupMenuItem(
-                child: Text("ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢜᡪᢊᡪᡨ ᡳᡪᢉᡨ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+                child: Text(
+                  "ᡥᡭᡬᢔᡭᡬᡨ ᡭᡧ ᢜᡪᢊᡪᡨ ᡳᡪᢉᡨ",
+                  style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+                ),
                 value: "FontSize",
               ),
               PopupMenuItem(
-                child: Text("ᢘᡬᡬᡨ ᢔᡭᢑᡬᡪᡪᡳ",style: TextStyle(fontFamily: MongolFonts.z52ordostig),),
+                child: Text(
+                  "ᢘᡬᡬᡨ ᢔᡭᢑᡬᡪᡪᡳ",
+                  style: TextStyle(fontFamily: MongolFonts.z52ordostig),
+                ),
                 value: "FontFamily",
               ),
             ],
@@ -49,7 +56,6 @@ class ReadingScreen extends StatelessWidget {
               }
             },
           ),
-
         ],
       ),
       body: Padding(
@@ -60,11 +66,11 @@ class ReadingScreen extends StatelessWidget {
           child: Container(
             height: context.height,
             // width: context.width,
-            child: MongolText(
-              chapter.content,
-              textAlign: MongolTextAlign.top,
-              style: TextStyle(
-                fontFamily: MongolFonts.z52ordostig,
+            child: Obx(
+              () => MongolText(
+                chapter.content,
+                textAlign: MongolTextAlign.top,
+                style: _bookCtrl.contentStyle.value,
               ),
             ),
           ),

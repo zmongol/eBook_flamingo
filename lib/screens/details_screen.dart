@@ -126,7 +126,7 @@ class DetailsScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.only(right: 30),
                     child: Column(
-                      children: _bookCtrl.booksList
+                      children: _bookCtrl.randombooksList
                           .map((e) => ReadingListCard(
                                 book: e,
                                 pressDetails: () {
