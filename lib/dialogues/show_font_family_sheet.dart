@@ -31,7 +31,7 @@ class _FontFamily extends StatelessWidget {
           children: [
             20.heightBox,
             Text(
-              "Select Font Family",
+              "ᢘᡬᡬᡨ ᢔᡭᢑᡬᡪᡪᡳ",
               style:
                   TextStyle(fontFamily: MongolFonts.z52ordostig, fontSize: 20),
             ).centered(),
