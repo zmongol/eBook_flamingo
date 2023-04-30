@@ -6,11 +6,18 @@ import 'package:book_app/extensions/storage_ext.dart';
 import 'package:book_app/functions/load_book_json.dart';
 import 'package:book_app/models/books/book_model.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookCtrl extends GetxService {
   List<Book> booksList = <Book>[];
   var appTheme = appLightTheme().obs;
+
+  var contentStyle = TextStyle(      fontSize: 14,
+      
+      
+      ).obs;
+  
 
   var fontScale = 1.0.obs;
   var fontFamily = "".obs;
@@ -30,6 +37,7 @@ class BookCtrl extends GetxService {
       fontFamily.value = family;
     } else {
       fontFamily.value = "".boxfontFamily;
+      contentStyle
     }
   }
 
