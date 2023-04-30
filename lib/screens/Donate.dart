@@ -11,7 +11,7 @@ class Donation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zcode ᡭᡧ ᡳᡪᢇ ᡥᢚᡧ',
+        title: Text('Z ᡳᡪᢇ ᡥᢚᡧ',
             style: TextStyle(
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         centerTitle: true,
@@ -31,7 +31,7 @@ class Donation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: 180,
+                height: 220,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: MongolText(
@@ -296,7 +296,7 @@ class Donation extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Хандив  Support  打赏",
+                      "Хандив  BuyMeCoffee  赏杯咖啡",
                       style: TextStyle(
                         fontSize: 20,
                         color: Color(0xFF0072AA),

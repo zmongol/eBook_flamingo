@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite), //Go to Donation page
+            icon: Icon(Icons.coffee), //Go to Donation page
             onPressed: () {
               Navigator.push(
                 context,
