@@ -11,7 +11,7 @@ class Donation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Z ᡳᡪᢇ ᡥᢚᡧ',
+        title: Text('Zcode ᡳᡪᢇ ᡥᢚᡧ',
             style: TextStyle(
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         centerTitle: true,
@@ -35,7 +35,7 @@ class Donation extends StatelessWidget {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: MongolText(
-                    'Zcode ᡯᡫ ᡬᡭᡬᡲ ᢜᡭᡬᡱᡬᢥᡭᢙᡦ ᢔᢘᡪᡪᢙᡪᢞᢘᡦ ᡬᡫ ᡥᢞᡬᢑᢊᡬᢑᡪᢊᢔᡪᡧ ᡥᡪᢜᡪᡧ ᡴᡭᡬᢑᡭᢊᡪᡨ᠃ ᡸᡪᡬᡬᢑᢙᡧ ᡬᡬᡧ ᡥᡪᢔᡪᡱᡱᡭᢙᡪᢐ ᡫ ᡴᡭᡬᢞᡬᡧ ᢔᡬᡬᡭᡪᢋᡭ ᡬᡬᡧ ᢘᡭᡬᢑᡭᢊᡪᡨ ᢊᡪᢙᡭᡧ ᢔᡬᡰᡨ ᡥᡪᡶᡵ ᡬᡭᢊᡬᢜᡪᡳᡪᡨ᠃\nᡴᡭᢔᡭᢉᡨ ᢌᡭᡪᢊᡱᡱᡭᢐ ᡳᡬᢚᡬᡬᡨ ᢌᡬᡱᡫ ᢌᡭᡬᡪᢊᢊᡪᡨ ᡥᡭᢞᡭᢔᡬᡰᡨᡒ\n\n    ᡢ ᡬᡭᢊᡬᢜᡪᡪᡪᢚᡫ ᠄ \n       ᡳᡪᢞᡱᡱᡳ ᠂ ᢚᡭᡪᡪᡱᡪᢎᢛᡬᢐ\n       2023 ᡥᡭᡧ',
+                    'Zcode ᡯᡫ ᡬᡭᡬᡲ ᢜᡭᡬᡱᡬᢥᡭᢙᡦ ᢔᢘᡪᡪᢙᡪᢞᢘᡦ ᡬᡫ ᡥᢞᡬᢑᢊᡬᢑᡪᢊᢔᡪᡧ ᡥᡪᢜᡪᡧ ᡴᡭᡬᢑᡭᢊᡪᡨ᠃ ᢜᡭᡬᡱᡬᢥᡭᢙᡦ ᡳᡪᡨ ᡸᡪᡬᡬᢑᢙᡧ ᡬᡬᡧ ᡥᡪᢔᡪᡱᡱᡭᢙᡪᢐ ᡫ ᡴᡭᡬᢞᡬᡧ ᢔᡬᡬᡭᡪᢋᡭ ᡬᡬᡧ ᢘᡭᡬᢑᡭᢊᡪᡨ ᢊᡪᢙᡭᡧ ᢔᡬᡰᡨ ᡥᡪᡶᡵ ᡬᡭᢊᡬᢜᡪᡧ ᢘᡭᢞᢔᡬᡳᡪᡨ ᠃\nᡴᡭᢔᡭᢉᡨ ᢌᡭᡪᢊᡱᡱᡭᢐ ᡳᡬᢚᡬᡬᡨ ᢌᡬᡱᡫ ᢌᡭᡬᡪᢊᢊᡪᡨ ᡥᡭᢞᡭᢔᡬᡰᡨᡒ\n\n    ᡢ ᡬᡭᢊᡬᢜᡪᡪᡪᢚᡫ ᠄ \n       ᡳᡪᢞᡱᡱᡳ ᠂ ᢚᡭᡪᡪᡱᡪᢎᢛᡬᢐ\n       2023 ᡥᡭᡧ',
                     style: TextStyle(
                       fontFamily: MongolFonts.z52ordostig,
                     ),
@@ -43,7 +43,7 @@ class Donation extends StatelessWidget {
                 ),
               ),
               Text(
-                'In order to write and search Traditional Mongolian script correctly, we developed our own Z52 unicode standard, 45 beautifully designed fonts, an Artificial Intelligence Input Method Editor and word suggestion software packages for various platforms including iOS, Android, Macbook, and Windows. We also established a website and code conversion software. To build these mobile applications, we used Python/ Flutter/ VSC/ Xcode and many more packages.\nLet us celebrate the longevity of the Mongolian script!',
+                'In order to write and search Traditional Mongolian script correctly, we developed our own Z52 unicode standard, 50+ beautifully designed fonts, an Artificial Intelligence Input Method Editor and word suggestion software packages for various platforms including iOS, Android, Macbook, and Windows. We also established a website and code conversion software. To build these mobile applications, we used Python/ Flutter/ VSC/ Xcode and many more packages.\nLet us celebrate the longevity of the Mongolian script!',
                 style: TextStyle(
                   fontFamily: MongolFonts.z52saitig,
                   // color: Color(0xFF0072AA),

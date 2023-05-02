@@ -28,7 +28,7 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite), //Go to Donation page
+            icon: Icon(Icons.coffee), //Go to Donation page
             onPressed: () {
               Navigator.push(
                 context,

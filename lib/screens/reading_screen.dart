@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/find_ctrls.dart';
+import 'Donate.dart';
 
 final _bookCtrl = FindCtrl.book;
 
@@ -29,6 +30,16 @@ class ReadingScreen extends StatelessWidget {
                 fontFamily: MongolFonts.z52ordostig, color: Colors.white)),
         backgroundColor: Color.fromARGB(255, 164, 166, 168),
         actions: [
+          IconButton(
+            icon: Icon(Icons.coffee), //Go to Donation page
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Donation()), //Go to Donation page
+              );
+            },
+          ),
           PopupMenuButton<String>(
             itemBuilder: (context) => [
               PopupMenuItem(

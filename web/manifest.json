@@ -1,6 +1,6 @@
 {
-    "name": "book_app",
-    "short_name": "book_app",
+    "name": "Znom",
+    "short_name": "Znom",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
