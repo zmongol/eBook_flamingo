@@ -1,17 +1,19 @@
 import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/Component/find_ctrls.dart';
 import 'package:book_app/consttants.dart';
+import 'package:book_app/global_controllers/ads_ctrl.dart';
 import 'package:book_app/global_controllers/books_ctrl.dart';
 import 'package:book_app/screens/home_screen.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mongol/mongol.dart';
 
 void main() async {
   await GetStorage.init();
-
+  MobileAds.instance.initialize();
   _putCtrls();
   runApp(MyApp());
 }
@@ -101,4 +103,5 @@ class WelcomeScreen extends StatelessWidget {
 
 void _putCtrls() {
   Get.put(BookCtrl());
+  Get.put(AppAdsCtrl());
 }

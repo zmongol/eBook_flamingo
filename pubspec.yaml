@@ -29,6 +29,7 @@ dependencies:
   velocity_x: ^3.6.0
   rich_clipboard: ^1.0.1
   get_storage: ^2.1.1
+  google_mobile_ads: ^3.0.0
   
 
 dev_dependencies:
