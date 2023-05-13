@@ -111,6 +111,9 @@ class HomeScreen extends StatelessWidget {
                                       },
                                     ),
                                   );
+
+                                  FindCtrl.ads
+                                      .showTestAds(); //Remove it on production
                                 },
                               ))
                           .toList(),

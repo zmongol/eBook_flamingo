@@ -91,6 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                       },
                     ),
                   );
+                  FindCtrl.ads.showTestAds(); //Remove it on production
                 },
               ),
             ),

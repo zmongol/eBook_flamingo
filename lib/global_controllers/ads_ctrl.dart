@@ -31,6 +31,11 @@ class AppAdsCtrl extends GetxService {
     // Put Int.Sti ids here
   ];
 
+  Future<void> showTestAds() async {
+    await Future.delayed(Duration(seconds: 2));
+    showInterstitialAd(onclose: () {});
+  }
+
   final adUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/1033173712'
       : 'ca-app-pub-3940256099942544/4411468910';
@@ -48,8 +53,8 @@ class AppAdsCtrl extends GetxService {
           _interstitialAd = ad;
           numInterstitialLoadAttempts = 0;
           _interstitialAd!.setImmersiveMode(true);
-          await Future.delayed(Duration(seconds: 1)); // Just for test
-          showInterstitialAd(onclose: () {}); // Just for test
+          // await Future.delayed(Duration(seconds: 1)); // Just for test
+          // showInterstitialAd(onclose: () {}); // Just for test
         },
         onAdFailedToLoad: (LoadAdError error) {
           print("onAdFailedToLoad");
