@@ -23,14 +23,11 @@ Future<String?> readAssetFile(String path) async {
 }
 
 Future<List<String>> loadBookFiles() async {
-  List<String> booksFiles = [];
-  final manifestContent = await rootBundle.loadString('AssetManifest.json');
-
-  final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-
-  booksFiles =
-      manifestMap.keys.where((String key) => key.contains('json/')).toList();
-
-  // print("imagePaths : $booksFiles");
-  return booksFiles;
+  // Directly return the list of JSON files instead of loading from AssetManifest
+  return [
+    'assets/json/Compendium of Chronicles.json',
+    'assets/json/LookingForBook.json',
+    'assets/json/SecretHistoryOfMongols.json',
+    'assets/json/ᠭᠠᠩᠭ᠎ᠠ_ᠢᠨ_ᠤᠷᠤᠰᠬᠠᠯ.json',
+  ];
 }

@@ -1,6 +1,7 @@
 import 'package:book_app/screens/details_screen.dart';
 import 'package:book_app/widgets/reading_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mongol/mongol.dart';
 
 import '../Component/MongolFonts.dart';
@@ -92,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30),
-                  SingleChildScrollView(
+                  Obx(() => SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.only(right: 30),
                     child: Row(
@@ -112,13 +113,12 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   );
 
-                                  FindCtrl.ads
-                                      .showTestAds(); //Remove it on production
+                                  // FindCtrl.ads.showTestAds(); //Remove it on production  // Disabled AdMob
                                 },
                               ))
                           .toList(),
                     ),
-                  ),
+                  )),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 24),
                     child: Column(

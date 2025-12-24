@@ -1,19 +1,19 @@
 import 'package:book_app/Component/MongolFonts.dart';
 import 'package:book_app/Component/find_ctrls.dart';
 import 'package:book_app/consttants.dart';
-import 'package:book_app/global_controllers/ads_ctrl.dart';
+// import 'package:book_app/global_controllers/ads_ctrl.dart';  // Disabled
 import 'package:book_app/global_controllers/books_ctrl.dart';
 import 'package:book_app/screens/home_screen.dart';
 import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';  // Disabled
 import 'package:mongol/mongol.dart';
 
 void main() async {
   await GetStorage.init();
-  MobileAds.instance.initialize();
+  // MobileAds.instance.initialize();  // Disabled
   _putCtrls();
   runApp(MyApp());
 }
@@ -52,50 +52,52 @@ class WelcomeScreen extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RichText(
-              text: TextSpan(
-                // style: Theme.of(context).textTheme.display3,
-                children: [
-                  TextSpan(
-                    text: "flamin",
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(fontSize: 24, color: Colors.black),
+                    children: [
+                      TextSpan(
+                        text: "flamin",
+                      ),
+                      TextSpan(
+                        text: "go.",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: "go.",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                MongolText(
+                  "ᡯᡭᢍ ᡢ ᢚᡪᢊᡬᢍ ᢘᡭᢞᡪᢑᡪᢐ",
+                  style: TextStyle(
+                      fontFamily: MongolFonts.z52xanadutig, fontSize: 26),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: RoundedButton(
+                    text: "уншиж эхлэх",
+                    fontSize: 20,
+                    press: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
+                    },
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            MongolText(
-              "ᡯᡭᢍ ᡢ ᢚᡪᢊᡬᢍ ᢘᡭᢞᡪᢑᡪᢐ",
-              style:
-                  TextStyle(fontFamily: MongolFonts.z52xanadutig, fontSize: 26),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .6,
-              child: RoundedButton(
-                text: "уншиж эхлэх",
-                fontSize: 20,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return HomeScreen();
-                      },
-                    ),
-                  );
-                  FindCtrl.ads.showTestAds(); //Remove it on production
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -104,5 +106,5 @@ class WelcomeScreen extends StatelessWidget {
 
 void _putCtrls() {
   Get.put(BookCtrl());
-  Get.put(AppAdsCtrl());
+  // Get.put(AppAdsCtrl());  // Disabled
 }

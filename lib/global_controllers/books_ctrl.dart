@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookCtrl extends GetxService {
-  List<Book> booksList = <Book>[];
-  List<Book> randombooksList = <Book>[];
+  var booksList = <Book>[].obs;
+  var randombooksList = <Book>[].obs;
   var appTheme = appLightTheme().obs;
 
   var contentStyle = TextStyle().obs;
